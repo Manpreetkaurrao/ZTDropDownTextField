@@ -25,7 +25,7 @@ class MapViewDemoViewController: UIViewController {
         
         navigationItem.title = "Map View Demo"
 
-        view.bringSubview(toFront: fullAddressTextField)
+        view.bringSubviewToFront(fullAddressTextField)
         
         fullAddressTextField.delegate = self
         fullAddressTextField.dataSourceDelegate = self
@@ -90,7 +90,7 @@ extension MapViewDemoViewController: ZTDropDownTextFieldDataSourceDelegate {
         let placeMark = placemarkList[indexPath.row]
         
         let location = CLLocationCoordinate2D(latitude: placeMark.location!.coordinate.latitude, longitude: placeMark.location!.coordinate.longitude)
-        let span = MKCoordinateSpanMake(0.5, 0.5)
+        let span = MKCoordinateSpan.init(latitudeDelta: 0.5, longitudeDelta: 0.5)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
         

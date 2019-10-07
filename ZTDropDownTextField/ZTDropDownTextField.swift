@@ -64,7 +64,7 @@ public class ZTDropDownTextField: UITextField {
             dropDownTableView.estimatedRowHeight = rowHeight
             
             superview!.addSubview(dropDownTableView)
-            superview!.bringSubview(toFront: dropDownTableView)
+            superview!.bringSubviewToFront(dropDownTableView)
             
             dropDownTableView.translatesAutoresizingMaskIntoConstraints = false
             
@@ -87,12 +87,12 @@ public class ZTDropDownTextField: UITextField {
         switch animationStyle {
         case .Basic:
             let basicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-            basicAnimation!.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            basicAnimation!.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             basicAnimation?.toValue = appear ? 1 : 0
             dropDownTableView.pop_add(basicAnimation, forKey: "basic")
         case .Slide:
             let basicAnimation = POPBasicAnimation(propertyNamed: kPOPLayoutConstraintConstant)
-            basicAnimation?.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            basicAnimation?.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             basicAnimation?.toValue = appear ? dropDownTableViewHeight : 0
             heightConstraint.pop_add(basicAnimation, forKey: "heightConstraint")
         case .Expand:
