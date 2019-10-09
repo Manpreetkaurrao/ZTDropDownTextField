@@ -125,7 +125,7 @@ public class ZTDropDownTextField: UITextField {
     }
     
     @objc func editingChanged(textField: UITextField) {
-        if textField.text!.characters.count > 0 {
+        if textField.text!.count > 0 {
             setupTableView()
             self.tableViewAppearanceChange(appear: true)
         } else {
